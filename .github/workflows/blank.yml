@@ -20,4 +20,4 @@ jobs:
           }}" \
                           "https://api.github.com/repos/${{ github.repository }}/pulls?state=open")
           echo "::set-output name=prs::$PR_LIST"
-          echo "hello from Akanksha!!!"
+          echo "hello from Akuu!!!"
