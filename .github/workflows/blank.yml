@@ -16,8 +16,7 @@ jobs:
       - name: Fetch open pull requests
         id: fetch-prs
         run: >
-          PR_LIST=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN
-          }}" \
-                          "https://api.github.com/repos/${{ github.repository }}/pulls?state=open")
+          PR_LIST=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                    "https://api.github.com/repos/${{ github.repository }}/pulls?state=open&per_page=100")
           echo "::set-output name=prs::$PR_LIST"
           echo "hello from Akuuu!!!"
