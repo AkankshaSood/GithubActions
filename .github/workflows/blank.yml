@@ -15,7 +15,4 @@ jobs:
       
       - name: Log "hello"
         run: |
-          echo "hello" >> hello_log.txt
-          git add hello_log.txt
-          git commit -m "Add 'hello' log" || true
-          git push origin main
+          echo "hello from Amman!!!"
