@@ -1,18 +1,23 @@
 name: Log "hello" on every commit
-
-on:
+'on':
   push:
     branches:
-      - main  # Adjust branch name as needed
-
+      - main
 jobs:
   log_hello:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
       - name: Log "hello"
         run: |
           echo "hello from Amman!!!"
+
+      - name: Fetch open pull requests
+        id: fetch-prs
+        run: >
+          PR_LIST=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN
+          }}" \
+                          "https://api.github.com/repos/${{ github.repository }}/pulls?state=open")
+          echo "::set-output name=prs::$PR_LIST"
+          echo "hello from Akanksha!!!"
