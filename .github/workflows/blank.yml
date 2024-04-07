@@ -1,0 +1,21 @@
+name: Log "hello" on every commit
+
+on:
+  push:
+    branches:
+      - main  # Adjust branch name as needed
+
+jobs:
+  log_hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Log "hello"
+        run: |
+          echo "hello" >> hello_log.txt
+          git add hello_log.txt
+          git commit -m "Add 'hello' log" || true
+          git push origin main
